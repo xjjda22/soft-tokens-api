@@ -2,9 +2,7 @@ const request = require('supertest');
 const app = require('../app');
 
 describe('Server', () => {
-	beforeAll(async () => {
-		
-	});
+	beforeAll(async () => {});
 
 	test('Sample Api', async () => {
 		await request(app)

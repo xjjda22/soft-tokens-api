@@ -1,6 +1,6 @@
-const got = require('got');
 const app = require('express')();
 const bodyParser = require('body-parser');
+const winston = require('winston');
 
 const HTTPCode = require('./HTTPResponseCode');
 
@@ -11,9 +11,7 @@ app.disable('x-powered-by');
 
 const { PORT } = process.env;
 
-
 const processRequest = async (req, res, next) => {
-
 	res.status(HTTPCode.success.code).send({
 		httpCode: HTTPCode.success.code,
 		message: HTTPCode.success.message
@@ -46,7 +44,7 @@ app.get('/', processRequest);
 app.use(logger);
 
 app.listen(PORT, () => {
-	console.log(`Server listening on http://localhost:${PORT}`);
+	winston.info(`Server listening on http://localhost:${PORT}`);
 });
 
 module.exports = app;

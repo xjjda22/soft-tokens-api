@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node -r dotenv/config app.js",
     "debug": "node --inspect -r dotenv/config app.js",
-    "prettier": "prettier --write \"*.js\"",
+    "prettier": "prettier --write \"**/*.js\"",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "jest --setupFiles dotenv/config --forceExit --detectOpenHandles",
