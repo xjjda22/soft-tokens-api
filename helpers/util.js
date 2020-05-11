@@ -26,7 +26,7 @@ const isEmpty = val => {
 };
 
 const randomIntInc = (low, high) => {
-  return Math.floor(Math.random() * (high - low + 1) + low)
+  return new Date().toGMTString();
 }
 
 module.exports = {
