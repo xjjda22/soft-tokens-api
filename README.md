@@ -18,15 +18,6 @@ npm install
 # Run on port 3000
 npm start
 
-Api Endpoint:
-Method:HEAD
-
-Case: Sample Api 
-EndPoint:
-Response:{
-	
-}
-
 ```
 
 ## Structure
@@ -51,4 +42,25 @@ Response:{
 ├── process.json            # pm2 init
 ├── package.json
 └── README.md         
+```
+
+```shell
+
+Case: HealthCheck Api 
+EndPoint: http://localhost:4000/healthCheck
+Method:GET
+Response:{
+    "uptime": 16,
+    "message": "OK",
+    "timestamp": "Mon, 11 May 2020 07:44:15 GMT"
+}
+
+Case: Sample Api 
+EndPoint: http://localhost:4000/api
+Method:GET
+Response:{
+    "httpCode": 200,
+    "message": "The request has succeeded."
+}
+
 ```
