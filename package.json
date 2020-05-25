@@ -1,7 +1,7 @@
 {
-  "name": "projectstarter",
+  "name": "soft-tokens-api",
   "version": "0.0.1",
-  "description": "got url checking",
+  "description": "soft tokens api - two factor authentication",
   "main": "app.js",
   "scripts": {
     "start": "node -r dotenv/config app.js",
@@ -28,14 +28,22 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/harryranakl/project-starter"
+    "url": "https://github.com/harryranakl/soft-tokens-api"
   },
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1",
     "body-parser": "^1.19.0",
+    "celebrate": "^10.1.0",
+    "compression": "^1.7.4",
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.4",
+    "notp": "^2.0.3",
+    "tweetnacl": "^1.0.3",
+    "tweetnacl-util": "^0.15.1",
     "winston": "^3.2.1"
   },
   "devDependencies": {
