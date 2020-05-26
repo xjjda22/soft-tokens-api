@@ -4,7 +4,11 @@ const express = require('express');
 const healthCheck = require('./controllers/healthCheck');
 const api = require('./controllers/api');
 const users = require('./controllers/users');
+const joi = require('./controllers/joi');
+const seeds = require('./controllers/seeds');
+const otp = require('./controllers/otp');
 const tokens = require('./controllers/tokens');
+const challenges = require('./controllers/challenges');
 
 const router = express.Router();
 
@@ -30,30 +34,30 @@ router.delete(
 	users.deleteUser
 );
 
-router.get('/keyPair', tokens.keyPair);
-router.get('/seeds', tokens.seeds);
-router.post('/encrypt', tokens.encryptPostValidation, tokens.encrypt);
-router.post('/decrypt', tokens.decryptPostValidation, tokens.decrypt);
+router.get('/keyPair', seeds.keyPair);
+router.get('/seeds', seeds.seeds);
+router.post('/encrypt', joi.encryptPostValidation, seeds.encrypt);
+router.post('/decrypt', joi.decryptPostValidation, seeds.decrypt);
+router.get('/publicKey', seeds.publicKey);
 
 router.post(
 	'/otp/generate',
-	tokens.generateOTPPostValidation,
-	tokens.generateOTP
+	joi.generateOTPPostValidation,
+	otp.generate
 );
-router.post('/otp/verify', tokens.verifyOTPPostValidation, tokens.verifyOTP);
+router.post('/otp/verify', joi.verifyOTPPostValidation, otp.verify);
 
-router.get('/tokens/publicKey', tokens.publicKey);
-router.post('/tokens/register', tokens.decryptPostValidation, tokens.register);
+router.post('/tokens/register', joi.decryptPostValidation, tokens.register);
 
 router.post(
 	'/challenges/generate',
-	tokens.decryptPostValidation,
-	tokens.createChallenge
+	joi.decryptPostValidation,
+	challenges.create
 );
 router.post(
 	'/challenges/verify',
-	tokens.verifyPostValidation,
-	tokens.verifyChallenge
+	joi.verifyPostValidation,
+	challenges.verify
 );
 
 module.exports = router;

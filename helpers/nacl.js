@@ -3,7 +3,7 @@
 const nacl = require('tweetnacl'); // cryptographic functions
 nacl.util = require('tweetnacl-util'); // encoding & decoding
 
-const { util } = nacl.util;
+const { util } = nacl;
 // const enclientKeyPair = {
 // 	publicKey: 'Blu8pSFix3GHMZZSMsv0ynTblGvaabfVY8+R9wD+oH8=',
 // 	secretKey: 'H/UVsPodEhteR5WivwVuTLpWiaXMHl3m9xV5a3J2+8E='
